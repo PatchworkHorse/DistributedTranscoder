@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package transcode;
+
+// Example message types
+message Video {
+  string id = 1;
+  string title = 2;
+  repeated string tags = 3;
+}
+
+message TranscodeRequest {
+  string video_id = 1;
+  string output_format = 2;
+}
+
+message TranscodeResponse {
+  string transcoded_url = 1;
+}
+
+// Example service
+service TranscodeService {
+  rpc Transcode(TranscodeRequest) returns (TranscodeResponse) {}
+}
